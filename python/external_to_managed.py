@@ -40,7 +40,6 @@ class ExternalToManaged:
         self.table = table
         self.owner = owner
         self.like = like
-        self.region = dbutils.secrets.get('frontline-force', 'region').lower()
         self.uc_table = f"{self.catalog}.{self.schema}.{self.table}"
         self.uc_column = spark.read.table(f"{self.catalog}.information_schema.columns")
         self.uc_table_tags= spark.read.table(f"{self.catalog}.information_schema.table_tags")
